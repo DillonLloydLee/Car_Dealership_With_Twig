@@ -1,13 +1,60 @@
 <?php
   class Car
   {
+      private $model;
+      private $price;
+      private $miles;
+      public $image;
 
-    function __construct($make_model, $price, $miles, $image_path = "images/car3.png") {
-      $this->make_model = $make_model;
+
+    function __construct($model, $price, $miles, $image = "images/car3.png") {
+      $this->model = $model;
       $this->price = $price;
       $this->miles = $miles;
-      $this->image = $image_path;
+      $this->image = $image;
     }
+
+    function getModel() {
+      return $this->model;
+    }
+
+    function getPrice() {
+      return $this->price;
+    }
+
+    function getMiles() {
+      return $this->miles;
+    }
+
+    function getImage() {
+      return $this->image;
+    }
+
+    function setModel($model) {
+      if (is_string($model)) {
+        $this->model = $model;
+      }
+    }
+
+    function setPrice($price) {
+      $intPrice = (int) $price;
+      if ($intPrice != 0) {
+        $this->price = $intPrice;
+      }
+    }
+
+    function setMiles($miles){
+      $int_miles = (int) $miles;
+      if ($int_miles != 0){
+        $this->miles = $int_miles;
+      }
+    }
+
+    function setImage($image) {
+      $this->image = $image;
+    }
+
+
   }
 
   $porsche = new Car("2014 Porsche 911", 114991, 7864, "images/porsche.jpg");
@@ -23,7 +70,7 @@
 
   $cars_we_want = array();
   foreach ($cars as $car) {
-    if ($car->price < $_GET["price"] && $car->miles < $_GET["miles"])
+    if ($car->getPrice() < $_GET["price"] && $car->getMiles() < $_GET["miles"])
      {
       array_push($cars_we_want, $car);
     }
@@ -43,13 +90,16 @@
               echo "No cars found.  Sorry.";
 
             foreach ($cars_we_want as $car) {
-              echo "<li> $car->make_model </li>";
+              $carModel = $car->getModel();
+              $carPrice = $car->getPrice();
+              $carMiles = $car->getMiles();
+              echo "<li> $carModel </li>";
               echo "<ul>";
                   echo "<img src='$car->image' height=100 width=200>";
-                  echo "<li> $$car->price </li>";
-                  echo "<li> Miles: $car->miles </li>";
+                  echo "<li> $$carPrice </li>";
+                  echo "<li> Miles: $carMiles </li>";
               echo "</ul>";
-              echo "";
+              echo "<li></li>";
              }
         ?>
     </ul>
