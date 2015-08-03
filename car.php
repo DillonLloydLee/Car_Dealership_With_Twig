@@ -45,6 +45,9 @@
     <h1>Your Car Dealership</h1>
     <ul>
         <?php
+            if ($cars_matching_search == array())
+              echo "No cars found.  Sorry.";
+
             foreach ($cars_matching_search as $car) {
               echo "<li> $car->make_model </li>";
               echo "<ul>";
