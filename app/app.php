@@ -50,11 +50,10 @@
       }
     }
 
+    $output = "";
     if ($cars_we_want == array())
-      return
-      "<!DOCTYPE html>
-      <html>
-      <head>
+      $output = $output .
+      "<head>
         <title>Your Car Dealership's Homepage</title>
       </head>
       <body>
@@ -63,22 +62,7 @@
       </body>
       </html>";
 
-    foreach ($cars_we_want as $car) {
-      $carModel = $car->getModel();
-      $carPrice = $car->getPrice();
-      $carMiles = $car->getMiles();
-      echo '<li> $carModel </li>';
-      echo '<ul>';
-          echo '<img src='$car->image' height=100 width=200>';
-          echo '<li> $$carPrice </li>';
-          echo '<li> Miles: $carMiles </li>';
-      echo '</ul>';
-      echo '<li></li>';
-     }
 
-    </body>
-    </html>"
-      ;
   });
 
   return $app;

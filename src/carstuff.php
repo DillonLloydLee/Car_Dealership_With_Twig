@@ -7,7 +7,7 @@
       public $image;
 
 
-    function __construct($model, $price, $miles, $image = "/../images/car3.png") {
+    function __construct($model, $price, $miles, $image = "/images/car3.png") {
       $this->model = $model;
       $this->price = $price;
       $this->miles = $miles;
