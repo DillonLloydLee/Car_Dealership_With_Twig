@@ -3,23 +3,28 @@
     require_once __DIR__."/../src/Car.php";
 
     // Starts session, and makes an empty array for list_of_cars.
+
     session_start();
+
     if (empty($_SESSION['list_of_cars'])) {
         $_SESSION['list_of_cars'] = array();
     }
 
     // Direct app to twig.path
-    $app = new Silex\Application();
-    $app->register(new Silex\Provider\TwigServiceProvider(), array( 'twig.path' => __DIR__.'/../views'));
 
-    // Home page.
+    $app = new Silex\Application();
+    $app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __DIR__.'/../views'));
+
+    // Home page: car search form.
+
     $app->get("/", function() use ($app) {
 
         return $app['twig']->render('cars.html.twig', array('cars' => Car::getall()));
-
     });
 
-    // Another page.
+
+    // Page: results display.
+
     $app->get("carfinal", function() use ($app) {
 
         return $app['twig']->render('results.html.twig', array('newcar' => $car));
@@ -65,7 +70,7 @@
     $output = $output .
     "<li> $carModel </li>
     <ul>
-    <img src='$car->image' height=100 width=200>
+    <img src='$car->image' height=150>
     <li> $$carPrice </li>
     <li> Miles: $carMiles </li>
     </ul>

@@ -5,5 +5,57 @@
     </head>
     <body>
 
+        <div class='container'>
+          <h1>Find a Car!</h1>
+          <form action='/results'>
+
+            <div class='form-group'>
+                <label for='price'>Enter Maximum Price:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input id='price' name='price' class='form-control' type='text' placeholder='Amount'>
+                </div>
+            </div>
+
+            <div class='form-group'>
+              <label for='miles'>Enter Maximum Mileage:</label>
+              <input id='miles' name='miles' class='form-control' type='text' placeholder="Amount">
+            </div>
+
+            <button type='submit' class='btn-success'>Submit</button>
+          </form>
+        </div>
+
+        <div class='container'>
+          <h1>Have a car for sale?  Add it here:</h1>
+
+          <form action='/car_added' method='post'>
+            <div class='form-group'>
+            <label for='model'>Enter Year, Make, and Model:</label>
+            <input id='model' name='model' class='form-control' type='text' placeholder='1996 Dodge Neon'>
+            </div>
+
+            <div class='form-group'>
+                <label for='price'>Enter Sales Price:</label>
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input id='price' name='price' class='form-control' type='text' placeholder='Amount'>
+                </div>
+            </div>
+
+            <div class='form-group'>
+              <label for='miles'>Enter Mileage:</label>
+              <input id='miles' name='miles' class='form-control' type='text' placeholder='Amount'>
+            </div>
+
+            <div class='form-group'>
+              <label for='image'>Enter Image URL:</label>
+              <input id='image' name='image' class='form-control' type='text' placeholder='www.yoursite.com/image.jpg'>
+            </div>
+
+            <button type='submit' class='btn-success'>Submit</button>
+          </form>
+        </div>
+
     </body>
 </html>
