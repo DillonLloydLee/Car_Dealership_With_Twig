@@ -1,8 +1,11 @@
 <?php
   require_once __DIR__."/../vendor/autoload.php";
-  require_once __DIR__."/../src/carstuff.php";
+  require_once __DIR__."/../src/Car.php";
+
+  // Direct app to twig.path
 
   $app = new Silex\Application();
+  $app->register(new Silex\Provider\TwigServiceProvider(), array( 'twig.path' => __DIR__'/../views'));
 
   $app->get("/", function() {
     return
