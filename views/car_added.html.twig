@@ -9,6 +9,12 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <h3>Your ad has been posted!</h3>
+                    <p><b>{{ newcar.getmodel }}</b></p>
+                    <p><img height="150" width="*" src="{{ newcar.getimage }}" class="img-rounded"></p>
+                    <ul>
+                        <li>Price: ${{ newcar.getprice }}</li>
+                        <li>Miles: {{ newcar.getmiles }}</li>
+                    </ul>
                     <a class="btn btn-default" href="/" role="button">Back to Car Search</a>
                 </div>
                 <div class="col-md-4"></div>

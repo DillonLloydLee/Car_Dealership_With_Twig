@@ -23,10 +23,10 @@
 
     // Page: car newly added.
 
-    $app->get('/car_added', function() use ($app) {
+    $app->post('/car_added', function() use ($app) {
         $car = new Car($_POST['model'], $_POST['price'], $_POST['miles'], $_POST['image']);
         $car->save();
-        return $app['twig']->render('car_added.html.twig', array('newcar' => Car::getall()));
+        return $app['twig']->render('car_added.html.twig', array('newcar' => $car));
     });
 
     // Page: Delete cars
@@ -40,7 +40,7 @@
 
     $app->get('/results', function() use ($app) {
 
-        return $app['twig']->render('results.html.twig', array('newcar' => $car));
+        //return $app['twig']->render('results.html.twig', array('newcar' => $car));
         /*
         $porsche = new Car("2014 Porsche 911", 114991, 7864, "/images/porsche.jpg");
         $ford = new Car("2011 Ford F450", 55995, 14214, "/images/ford.jpg");

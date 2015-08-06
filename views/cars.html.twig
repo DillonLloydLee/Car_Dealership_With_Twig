@@ -8,21 +8,22 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
+                <h3 class="text-center"><strong>Great Car Dealership!</strong></h3>
                 <!-- List all available cars -->
 
                 {% if cars is not empty %}
                     <p>Available cars:</p>
                     {% for car in cars %}
                         <p><b>{{ car.getmodel }}</b></p>
+                        <p><img height="150" width="*" src="{{ car.getimage }}" class="img-rounded"></p>
                         <ul>
-                            <li>{{ car.getprice }}</li>
-                            <li>{{ car.getmiles }}</li>
-                            <li><img src="{{ car.getimage}}"></li>
+                            <li>Price: ${{ car.getprice }}</li>
+                            <li>Miles: {{ car.getmiles }}</li>
                         </ul>
                     {% endfor %}
                 {% endif %}
 
-                <h3>Find a Car!</h3>
+                <h3>Find a car!</h3>
                 <form action='/results'>
                     <div class='form-group'>
                         <label for='price'>Enter Maximum Price:</label>
@@ -40,7 +41,7 @@
                     <button type='submit' class='btn-success'>Submit</button>
                 </form>
 
-                <h3>Have a car for sale?  Add it here:</h3>
+                <h3>Add your car here:</h3>
 
                 <form action='/car_added' method='post'>
                     <div class='form-group'>
