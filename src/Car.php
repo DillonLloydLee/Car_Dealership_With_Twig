@@ -30,9 +30,6 @@
 
     function setPrice($price) {
       $intPrice = (int) $price;
-      if ($intPrice != 0) {
-        $this->price = $intPrice;
-      }
     }
 
     function getMiles() {
@@ -41,9 +38,6 @@
 
     function setMiles($miles){
       $int_miles = (int) $miles;
-      if ($int_miles != 0){
-        $this->miles = $int_miles;
-      }
     }
 
     function getImage() {

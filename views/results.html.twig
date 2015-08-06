@@ -1,9 +1,64 @@
 <html>
-    <head>
-        <title>Car Dealership</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    </head>
-    <body>
-        <h1>TEXT</h1>
-    </body>
+<head>
+    <title>Car Dealership</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h1>Search Results:</h1>
+
+                {% if cars is not empty %}
+                    <p>Available cars:</p>
+                    {% for car in cars %}
+                        <p><b>{{ car.getmodel }}</b></p>
+                        <p><img height="150" width="*" src="{{ car.getimage }}" class="img-rounded"></p>
+                        <ul>
+                            <li>Price: ${{ car.getprice }}</li>
+                            <li>Miles: {{ car.getmiles }}</li>
+                        </ul>
+                    {% endfor %}
+                {% endif %}
+                <a class="btn btn-default" href="/" role="button">Back to Car Search</a>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</body>
 </html>
+
+
+<!-- $output = "";
+
+$output = $output .
+"<head>
+<title>Your Car Dealership's Homepage</title>
+</head>
+<body>
+<h1>Your Car Dealership</h1>
+</body>
+</html>";
+
+if ($cars_we_want == array()) {
+$output = $output .
+"<h2>Sorry, no cars available<h2>
+</body>
+</html>";
+}
+
+foreach ($cars_we_want as $car) {
+$carModel = $car->getModel();
+$carPrice = $car->getPrice();
+$carMiles = $car->getMiles();
+$output = $output .
+"<li> $carModel </li>
+<ul>
+<img src='$car->image' height=150>
+<li> $$carPrice </li>
+<li> Miles: $carMiles </li>
+</ul>
+<li></li>
+";
+} -->
