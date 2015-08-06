@@ -18,9 +18,11 @@
     // Home page: car search form.
 
     $app->get("/", function() use ($app) {
-
-        return $app['twig']->render('cars.html.twig', array('cars' => Car::getall()));
+        $car = new Place($_POST['model'], $_POST['price'], $_POST['miles'], $_POST['image']);
+        $car->save();
+        return $app['twig']->render('car_added.html.twig', array('newcar' => Car::getall()));
     });
+
 
 
     // Page: results display.
