@@ -8,9 +8,22 @@
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
+                <!-- List all available cars -->
+
+                {% if cars is not empty %}
+                    <p>Available cars:</p>
+                    {% for car in cars %}
+                        <p><b>{{ car.getmodel }}</b></p>
+                        <ul>
+                            <li>{{ car.getprice }}</li>
+                            <li>{{ car.getmiles }}</li>
+                            <li><img src="{{ car.getimage}}"></li>
+                        </ul>
+                    {% endfor %}
+                {% endif %}
+
                 <h3>Find a Car!</h3>
                 <form action='/results'>
-
                     <div class='form-group'>
                         <label for='price'>Enter Maximum Price:</label>
                         <div class="input-group">
@@ -55,6 +68,13 @@
 
                     <button type='submit' class='btn-success'>Submit</button>
                 </form>
+
+                <form action='/delete_cars' method='post'>
+                    <div class='form-group'>
+                        <button class='btn btn-danger' type='submit'>Remove All Cars</button>
+                    </div>
+                </form>
+
             </div>
             <div class="col-md-4"></div>
         </div>

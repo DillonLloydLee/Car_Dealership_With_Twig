@@ -21,15 +21,24 @@
         return $app['twig']->render('cars.html.twig', array('cars' => Car::getAll()));
     });
 
+    // Page: car newly added.
+
     $app->get('/car_added', function() use ($app) {
         $car = new Car($_POST['model'], $_POST['price'], $_POST['miles'], $_POST['image']);
         $car->save();
         return $app['twig']->render('car_added.html.twig', array('newcar' => Car::getall()));
     });
 
+    // Page: Delete cars
+
+    $app->post('/delete_cars', function() use ($app) {
+        Car::deleteAll();
+        return $app['twig']->render('delete_cars.html.twig');
+    });
+
     // Page: results display.
 
-    $app->get("carfinal", function() use ($app) {
+    $app->get('/results', function() use ($app) {
 
         return $app['twig']->render('results.html.twig', array('newcar' => $car));
         /*
