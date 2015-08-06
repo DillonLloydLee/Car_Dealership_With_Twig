@@ -18,22 +18,14 @@
       return $this->model;
     }
 
-    function getPrice() {
-      return $this->price;
-    }
-
-    function getMiles() {
-      return $this->miles;
-    }
-
-    function getImage() {
-      return $this->image;
-    }
-
     function setModel($model) {
       if (is_string($model)) {
         $this->model = $model;
       }
+    }
+
+    function getPrice() {
+      return $this->price;
     }
 
     function setPrice($price) {
@@ -43,6 +35,10 @@
       }
     }
 
+    function getMiles() {
+      return $this->miles;
+    }
+
     function setMiles($miles){
       $int_miles = (int) $miles;
       if ($int_miles != 0){
@@ -50,8 +46,24 @@
       }
     }
 
+    function getImage() {
+      return $this->image;
+    }
+
     function setImage($image) {
       $this->image = $image;
+    }
+
+    function save() {
+        array_push($_SESSION['list_of_cars'], $this);
+    }
+
+    static function getAll() {
+        return $_SESSION['list_of_cars'];
+    }
+
+    static function deleteAll() {
+        $_SESSION['list_of_cars'] = array();
     }
 
   }
