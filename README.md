@@ -1,14 +1,23 @@
-CAR DEALERSHIP PROGRAM:
+# _CAR DEALERSHIP PROGRAM_
 
-description: First day class work about car prices.
-date: August 3rd, 2015.
-created by: Dillon Lee, Jordan Navratil
-notes: Silex changes added to this program by Dillon Lee, august 4th, 2015
-instruction: To work this program, input the maximum mileage and price that you desire, then it'll spit back out the cars that are available to you.  Hurrah!
+#### _Car prices app with Silex and Twig, August 6th, 2015_
 
-Made using PHP and HTML.
+#### By _**Dillon Lee, Samantha Maturen**_
 
-Copyright (c) 2015 {Dillon Lee & Joradn Navratil}
+## Description
+
+_Silex apps which allow you to create, save and delete objects, while using Twig templates_
+
+## Setup
+
+* _To work this program, input the maximum mileage and price that you desire, then it'll spit back out the cars that are available to you.  Hurrah!_
+* _Run composer install on the root folder_
+
+Made using PHP, HTML, Silex, Twig
+
+### Legal
+
+Copyright (c) 2015 **_Dillon Lee & Samantha Maturen_**
 
 This software is licensed under the MIT license.
 
